@@ -1,0 +1,66 @@
+{
+	"name": "nodejs-rest-boilerplate",
+	"version": "1.0.0",
+	"description": "A NodeJs application with Express framework, MongoDb as database, Mongoose as ODM.",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node .",
+		"dev": "nodemon --exec \"npm run lint-fix && npm run start\"",
+		"test": "mocha './test/**/*.*.js'  && --exit",
+		"coverage": "nyc --reporter=lcov --reporter=text npm run test",
+		"lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+		"lint-fix": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
+		"prettier": "npx prettier --write '**/*.js'"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint-fix"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thenewj-com/nodejs-rest-boilerplate.git"
+	},
+	"bugs": {
+		"url": "https://github.com/thenewj-com/nodejs-rest-boilerplate/issues"
+	},
+	"homepage": "https://github.com/thenewj-com/nodejs-rest-boilerplate#readme",
+	"engines": {
+		"yarn": "1.x",
+		"node": "18.x"
+	},
+	"author": "kshitiz-jha",
+	"keywords": [
+		"NodeJs",
+		"Boilerplate",
+		"Express",
+		"MongoDB",
+		"Mongoose",
+		"Joi"
+	],
+	"license": "AGPL-3.0-or-later",
+	"dependencies": {
+		"@sentry/node": "^6.19.6",
+		"@sentry/tracing": "^6.19.6",
+		"chai": "^5.1.1",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"gen-uid": "^0.0.2",
+		"ioredis": "^5.3.2",
+		"joi": "^17.6.0",
+		"jsonwebtoken": "^9.0.2",
+		"md5": "^2.3.0",
+		"mocha": "^10.7.3",
+		"mongoose": "^8.6.3",
+		"rollbar": "^2.24.1",
+		"winston": "^3.11.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.12.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.3.7",
+		"nodemon": "^2.0.15",
+		"nyc": "^15.1.0"
+	}
+}
