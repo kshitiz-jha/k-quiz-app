@@ -1,0 +1,8 @@
+build
+node_modules
+.env
+.log
+logs
+coverage
+.sonar-cache
+tracing.js

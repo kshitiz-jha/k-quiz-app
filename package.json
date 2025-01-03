@@ -1,66 +1,74 @@
 {
-	"name": "nodejs-rest-boilerplate",
-	"version": "1.0.0",
-	"description": "A NodeJs application with Express framework, MongoDb as database, Mongoose as ODM.",
-	"main": "src/index.js",
-	"scripts": {
-		"start": "node .",
-		"dev": "nodemon --exec \"npm run lint-fix && npm run start\"",
-		"test": "mocha './test/**/*.*.js'  && --exit",
-		"coverage": "nyc --reporter=lcov --reporter=text npm run test",
-		"lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
-		"lint-fix": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
-		"prettier": "npx prettier --write '**/*.js'"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run lint-fix"
-		}
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/thenewj-com/nodejs-rest-boilerplate.git"
-	},
-	"bugs": {
-		"url": "https://github.com/thenewj-com/nodejs-rest-boilerplate/issues"
-	},
-	"homepage": "https://github.com/thenewj-com/nodejs-rest-boilerplate#readme",
-	"engines": {
-		"yarn": "1.x",
-		"node": "18.x"
-	},
-	"author": "kshitiz-jha",
-	"keywords": [
-		"NodeJs",
-		"Boilerplate",
-		"Express",
-		"MongoDB",
-		"Mongoose",
-		"Joi"
-	],
-	"license": "AGPL-3.0-or-later",
-	"dependencies": {
-		"@sentry/node": "^6.19.6",
-		"@sentry/tracing": "^6.19.6",
-		"chai": "^5.1.1",
-		"cors": "^2.8.5",
-		"dotenv": "^16.0.0",
-		"express": "^4.17.3",
-		"gen-uid": "^0.0.2",
-		"ioredis": "^5.3.2",
-		"joi": "^17.6.0",
-		"jsonwebtoken": "^9.0.2",
-		"md5": "^2.3.0",
-		"mocha": "^10.7.3",
-		"mongoose": "^8.6.3",
-		"rollbar": "^2.24.1",
-		"winston": "^3.11.0"
-	},
-	"devDependencies": {
-		"eslint": "^8.12.0",
-		"husky": "^7.0.4",
-		"lint-staged": "^12.3.7",
-		"nodemon": "^2.0.15",
-		"nyc": "^15.1.0"
-	}
+  "name": "kshitiz-quizz",
+  "version": "1.0.0",
+  "description": "A es6  nodejs application with Express",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest -i --colors --verbose --detectOpenHandles",
+    "prestart": "npm run build",
+    "start": "npm run server",
+    "debug": "nodemon --exec \"npm run lint:fix && npm run dev-server\"",
+    "dev-server": "babel-node src/server.js",
+    "dev": "nodemon --exec \"npm run lint:fix && npm run dev-server\"",
+    "build": "npm run clean && babel src --copy-files --out-dir build/src",
+    "server": "node build/src/server.js",
+    "clean": "rimraf build",
+    "lint": "eslint './src/**/*.js'",
+    "lint:fix": "eslint './src/**/*.js' --fix",
+    "db-seed": "babel-node src/dbSeed",
+    "scheduler:dev": "babel-node src/scheduler",
+    "scheduler": "node build/src/scheduler"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kshitiz-jha/kshitiz-quiz-app.git"
+  },
+  "keywords": [
+    "quiz"
+  ],
+  "author": "Kshitiz Jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kshitiz-jha/kshitiz-quiz-app/issues"
+  },
+  "homepage": "https://github.com/kshitiz-jha/kshitiz-quiz-app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.22.1",
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/node": "^7.22.1",
+    "@babel/plugin-transform-class-properties": "^7.22.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-security": "^1.7.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "api-query-params": "^5.4.0",
+    "body-parser": "^1.20.3",
+    "celebrate": "^15.0.3",
+    "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "http-status": "^1.6.2",
+    "joi": "^17.13.3",
+    "morgan": "^1.10.0",
+    "nedb": "^1.8.0",
+    "supertest": "^7.0.0",
+    "uuid": "^11.0.3",
+    "uuidv4": "^6.2.13",
+    "winston": "^3.17.0"
+  }
 }

@@ -1,11 +1,2 @@
-/**
- * services/index.js
- * shrikant aher
- */
-
-
-
-module.exports = {
-	Auth: require('./wrapperService')('Auth'),
-	User: require('./wrapperService')('User'),
-};
+export { default as initDBConnection } from "./db";
+export * from "./logger";
